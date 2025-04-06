@@ -15,12 +15,12 @@ cdistance = 27
 
 pygame.init()
 screen = pygame.display.set_mode((screenwidth, screenhight))
-background = pygame.image.load('bg.webp')
+background =pygame.transform.scale(pygame.image.load('bg.webp'), (screenwidth, screenhight))
 pygame.display.set_caption('space invaders')
 icon = pygame.image.load('ufo.webp')
 pygame.display.set_icon(icon)
 
-playimg = pygame.image.load('rocket.png')
+playimg = pygame.transform.scale(pygame.image.load('rocket.png'), (64, 64))
 playerx = pstartx
 playery = pstarty
 pxchange = 0
@@ -33,13 +33,14 @@ enemyychange = []
 numofe = 6
 
 for _i in range(numofe):
-    enemyimg.append(pygame.image.load('ufo.webp'))
+    enemyimg.append(pygame.transform.scale(pygame.image.load('ufo.webp'), (64, 64)))
     enemyx.append(random.randint(0, screenwidth - 64))
     enemyy.append(random.randint(estartymin, estartymax))
     enemyxchange.append(espeedx)
     enemyychange.append(espeedy)
 
-bulletimg = pygame.image.load('bullet.png')
+
+bulletimg = pygame.transform.scale(pygame.image.load('bullet.png'), (32, 32))
 bulletx = 0
 bullety = pstarty
 bulletxchange = 0
